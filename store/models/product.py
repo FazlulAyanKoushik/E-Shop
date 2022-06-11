@@ -1,4 +1,5 @@
 from django.db import models
+from .category import Category
 
 
 class Product(models.Model):
@@ -7,3 +8,4 @@ class Product(models.Model):
     price = models.IntegerField(default=0)
     description = models.TextField(default='')
     image = models.ImageField(upload_to='uploads/products/')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
